@@ -1,0 +1,22 @@
+{
+  "name": "flexion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [
+    "spanish",
+    "conjugation"
+  ],
+  "author": "Reuben Eggar",
+  "license": "MIT",
+  "dependencies": {
+    "replace-last": "^1.2.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/preset-env": "^7.2.0"
+  }
+}
