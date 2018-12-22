@@ -77,30 +77,6 @@ export default {
           second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'éis'},
           third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'en'}
         }
-      },
-      imperfect: {
-        singular: {
-          first(){ return ['ra', 'se'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -3) + end)},
-          second(){ return ['ras', 'ses'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -3) + end)},
-          third(){ return ['ra', 'se'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -3) + end)}
-        },
-        plural: {
-          first(){ return ['ramos', 'semos'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -4) + accent(this.inflections.indicative.preterite.plural.third.slice(-4, -3)) + end)},
-          second(){ return ['rais', 'seis'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -3) + end)},
-          third(){ return ['ran', 'sen'].map(end => this.inflections.indicative.preterite.plural.third.slice(0, -3) + end)}
-        }
-      },
-      future: {
-        singular: {
-          first(){ return this.inflections.indicative.preterite.plural.third.slice(0, -2) + 'e'},
-          second(){ return this.inflections.indicative.preterite.plural.third.slice(0, -2) + 'es'},
-          third(){ return this.inflections.indicative.preterite.plural.third.slice(0, -2) + 'e'}
-        },
-        plural: {
-          first(){ return this.inflections.indicative.preterite.plural.third.slice(0, -4) + accent(this.inflections.indicative.preterite.plural.third.slice(-4, -3)) +  'remos'},
-          second(){ return this.inflections.indicative.preterite.plural.third.slice(0, -2) + 'eis'},
-          third(){ return this.inflections.indicative.preterite.plural.third.slice(0, -2) + 'en'}
-        }
       }
     }
   },
