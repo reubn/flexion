@@ -1,3 +1,11 @@
+import contar from './contar'
+import acertar from './acertar'
+import degollar from './degollar'
+
+import cazar from './cazar'
+import llegar from './llegar'
+import sacar from './sacar'
+
 export default {
   verb: 'amar',
   test: i => i.endsWith('ar'),
@@ -81,5 +89,12 @@ export default {
     }
   },
   subTree: [
+    contar,
+    acertar,
+    degollar,
+
+    cazar,
+    llegar,
+    sacar
   ]
 }
