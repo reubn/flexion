@@ -1,4 +1,4 @@
-import dataTree from './dataTree'
+import data from './data'
 import VerbModelFactory from './VerbModelFactory'
 
 const extend = (original, context, key, thisValue) => {
@@ -17,24 +17,24 @@ const extend = (original, context, key, thisValue) => {
 export default infinitive => {
  let mostSpecificModel
 
- const processTree = (dataTree, parentInflections={}) => {
-   if(Array.isArray(dataTree)) return dataTree.forEach(tree => processTree(tree, parentInflections))
-   if(typeof dataTree === 'object' && (dataTree.verb || dataTree.subTree)){
-     if(dataTree.test && !dataTree.test(infinitive)) return
+ const processTree = (tree, parentInflections={}) => {
+   if(Array.isArray(tree)) return tree.forEach(tree => processTree(tree, parentInflections))
+   if(typeof tree === 'object' && (tree.verb || tree.subTree)){
+     if(tree.test && !tree.test(infinitive)) return
 
-     const extendedInflections = extend(parentInflections, dataTree.inflections)
+     const extendedInflections = extend(parentInflections, tree.inflections)
      mostSpecificModel = {
-       verb: dataTree.verb,
+       verb: tree.verb,
        inflections: extendedInflections
      }
 
-     processTree(dataTree.subTree, extendedInflections)
+     processTree(tree.subTree, extendedInflections)
 
      return
    }
  }
 
- processTree(dataTree)
+ processTree(data)
 
  return new (VerbModelFactory(mostSpecificModel))(infinitive)
 }
