@@ -1,7 +1,5 @@
 import util from 'util'
 
-import {stringify, parse} from 'flatted'
-
 import conjugate from './conjugate'
 
 process.stdin.setEncoding('utf8');
