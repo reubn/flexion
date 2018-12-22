@@ -5,6 +5,11 @@ import accent from '../util/accent'
 export default {
   inflections: {
     indicative: {
+      present: {
+        singular: {
+          first(){ return this.inflections.root + 'o'},
+        }
+      },
       conditional: {
         singular: {
           first(){ return this.infinitive + 'ía'},
@@ -67,7 +72,6 @@ export default {
         indicative: {
           present: {
             singular: {
-              first(){ return this.inflections.root + 'o'},
               second(){ return this.inflections.root + 'as'},
               third(){ return this.inflections.root + 'a'}
             },
@@ -195,7 +199,6 @@ export default {
         indicative: {
           present: {
             singular: {
-              first(){ return this.inflections.root + 'o'},
               second(){ return this.inflections.root + 'es'},
               third(){ return this.inflections.root + 'e'}
             },
@@ -256,7 +259,6 @@ export default {
         indicative: {
           present: {
             singular: {
-              first(){ return this.inflections.root + 'o'},
               second(){ return this.inflections.root + 'es'},
               third(){ return this.inflections.root + 'e'}
             },
