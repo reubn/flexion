@@ -1,5 +1,3 @@
-import replaceLast from 'replace-last'
-
 import accent from '../util/accent'
 
 import amar from './amar'
