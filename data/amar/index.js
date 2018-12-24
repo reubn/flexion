@@ -1,6 +1,10 @@
 import contar from './contar'
 import acertar from './acertar'
 import degollar from './degollar'
+import actuar from './actuar'
+import vaciar from './vaciar'
+import menguar from './menguar'
+import avergonzar from './avergonzar'
 
 import cazar from './cazar'
 import llegar from './llegar'
@@ -89,12 +93,16 @@ export default {
     }
   },
   subTree: [
+    cazar,
+    llegar,
+    sacar,
+
     contar,
     acertar,
     degollar,
-
-    cazar,
-    llegar,
-    sacar
+    actuar,
+    vaciar,
+    menguar,
+    avergonzar
   ]
 }
