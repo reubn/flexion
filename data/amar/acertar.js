@@ -1,4 +1,4 @@
-import replaceLast from 'replace-last'
+import replaceLast from '../../util/replaceLast'
 
 export default {
   verb: 'acertar',
