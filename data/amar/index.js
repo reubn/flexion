@@ -5,6 +5,18 @@ import actuar from './actuar'
 import vaciar from './vaciar'
 import menguar from './menguar'
 import avergonzar from './avergonzar'
+import enraizar from './enraizar'
+import forzar from './forzar'
+import jugar from './jugar'
+import negar from './negar'
+import rogar from './rogar'
+import tropezar from './tropezar'
+import volcar from './volcar'
+import andar from './andar'
+import dar from './dar'
+import desosar from './desosar'
+// import errar from './errar'
+// import estar from './estar'
 
 import cazar from './cazar'
 import llegar from './llegar'
@@ -103,6 +115,18 @@ export default {
     actuar,
     vaciar,
     menguar,
-    avergonzar
+    avergonzar,
+    enraizar,
+    forzar,
+    jugar,
+    negar,
+    rogar,
+    tropezar,
+    volcar,
+    andar,
+    dar,
+    desosar,
+    // errar,
+    // estar
   ]
 }
