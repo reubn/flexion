@@ -10,16 +10,17 @@ const convertToGetters = function (original, context, key, thisValue) {
   return detached
 }
 
-export default ({verb, inflections}) => class VerbModel {
-  inflections = {
-    root(){
-      return this.infinitive.substring(0, this.infinitive.length - 2)
+export default ({verb, inflections}, infinitive) => {
+  const template = {
+    infinitive,
+    inflections: {
+      root() {
+        return this.infinitive.substring(0, this.infinitive.length - 2)
+      }
     }
   }
 
-  constructor(infinitive){
-    this.infinitive = infinitive
-    this.inflections = convertToGetters({}, {...this.inflections, ...inflections}, undefined, this)
-  }
+  template.inflections = convertToGetters({}, {...template.inflections, ...inflections}, undefined, template)
 
+  return template
 }

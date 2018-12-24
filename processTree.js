@@ -1,5 +1,5 @@
 import data from './data'
-import VerbModelFactory from './VerbModelFactory'
+import verbModel from './verbModel'
 
 const extend = (original, context, key, thisValue) => {
  const detached = {...original}
@@ -36,5 +36,5 @@ export default infinitive => {
 
  processTree(data)
 
- return new (VerbModelFactory(mostSpecificModel))(infinitive)
+ return verbModel(mostSpecificModel, infinitive)
 }
