@@ -80,14 +80,14 @@ export default {
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'e'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'es'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'e'}
+          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'e'},
+          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'es'},
+          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'e'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'emos'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'éis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'en'}
+          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'emos'},
+          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'éis'},
+          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'en'}
         }
       }
     }

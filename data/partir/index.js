@@ -44,14 +44,14 @@ export default {
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'a'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'as'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'a'}
+          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'a'},
+          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'as'},
+          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'a'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'amos'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'áis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'an'}
+          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'amos'},
+          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'áis'},
+          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'an'}
         }
       }
     }
