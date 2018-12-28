@@ -1,3 +1,5 @@
+import pretéritoGraveMixin from '../mixins/pretéritoGrave'
+
 export default {
   verb: 'estar',
   test: i => i === 'estar',
@@ -13,18 +15,7 @@ export default {
           third(){ return this.inflections.root + 'án'},
         }
       },
-      preterite: {
-        singular: {
-          first(){ return this.inflections.root + 'uve'},
-          second(){ return this.inflections.root + 'uviste'},
-          third(){ return this.inflections.root + 'uvo'}
-        },
-        plural: {
-          first(){ return this.inflections.root + 'uvimos'},
-          second(){ return this.inflections.root + 'uvisteis'},
-          third(){ return this.inflections.root + 'uvieron'}
-        }
-      }
+      preterite: pretéritoGraveMixin('estuv')
     },
     subjunctive: {
       present: {
