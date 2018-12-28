@@ -13,6 +13,7 @@ const convertToGetters = (original, context, key, thisValue) => {
 
         Object.defineProperty(detached, key, {get: value, enumerable: true})
       }
+  
   return detached
 }
 
