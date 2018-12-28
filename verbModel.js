@@ -9,22 +9,17 @@ export default ({inflections}, infinitive) => {
     }
   }
 
-  const convertToGetters = (original, context, key) => {
-    const detached = {...original}
+  const compileTree = ({into: intoOriginal={}, from, key}) => {
+    const into = {...intoOriginal}
 
-    for (key in context)
-      if (context.hasOwnProperty(key))
-        if (Object.prototype.toString.call(context[key]) === '[object Object]')
-          detached[key] = convertToGetters(detached[key] || {}, context[key]);
-        else {
-          const value = context[key]
-          const isMixin = typeof value === 'function' && value.name && value.name.endsWith('Mixin')
-          detached[key] = isMixin ? value.call(null, verb) : typeof value === 'function' ? value.bind(null, verb) : (console.log(value), value)
-        }
+    for (key in from)
+      if (from.hasOwnProperty(key))
+        if (Object.prototype.toString.call(from[key]) === '[object Object]') into[key] = compileTree({into: into[key], from: from[key]})
+        else into[key] = typeof from[key] === 'function' ? from[key].name.endsWith('Mixin') ? from[key].call(null, verb) : from[key].bind(null, verb) : from[key]
 
-    return detached
+    return into
   }
 
-  verb.inflections = convertToGetters({}, {...verb.inflections, ...inflections})
+  verb.inflections = compileTree({from: {...verb.inflections, ...inflections}})
   return verb
 }
