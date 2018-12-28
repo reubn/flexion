@@ -3,6 +3,7 @@ import acertar from './acertar'
 import degollar from './degollar'
 import actuar from './actuar'
 import vaciar from './vaciar'
+import adecuar from './adecuar'
 import menguar from './menguar'
 import avergonzar from './avergonzar'
 import enraizar from './enraizar'
@@ -12,15 +13,16 @@ import negar from './negar'
 import rogar from './rogar'
 import tropezar from './tropezar'
 import volcar from './volcar'
+
+import cazar from './cazar'
+import llegar from './llegar'
+import sacar from './sacar'
+
 import andar from './andar'
 import dar from './dar'
 import desosar from './desosar'
 import errar from './errar'
 import estar from './estar'
-
-import cazar from './cazar'
-import llegar from './llegar'
-import sacar from './sacar'
 
 export default {
   verb: 'amar',
@@ -105,6 +107,12 @@ export default {
     }
   },
   subTree: [
+    andar,
+    dar,
+    desosar,
+    errar,
+    estar,
+
     cazar,
     llegar,
     sacar,
@@ -115,6 +123,7 @@ export default {
     actuar,
     vaciar,
     menguar,
+    adecuar,
     avergonzar,
     enraizar,
     forzar,
@@ -122,11 +131,6 @@ export default {
     negar,
     rogar,
     tropezar,
-    volcar,
-    andar,
-    dar,
-    desosar,
-    errar,
-    estar
+    volcar
   ]
 }
