@@ -7,10 +7,9 @@ const convertToGetters = (original, context, key, thisValue) => {
         detached[key] = convertToGetters(detached[key] || {}, context[key], undefined, thisValue);
       else {
         const isMixin = context[key].name && context[key].name.endsWith('Mixin')
-
         const value = isMixin
-          ? () => convertToGetters({}, context[key].call(thisValue), undefined, thisValue)
-          : context[key].bind(thisValue)
+          ? () => convertToGetters({}, context[key].call(thisValue, thisValue), undefined, thisValue)
+          : context[key].bind(thisValue, thisValue)
 
         Object.defineProperty(detached, key, {get: value, enumerable: true})
       }
