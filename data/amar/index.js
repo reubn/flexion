@@ -15,8 +15,8 @@ import volcar from './volcar'
 import andar from './andar'
 import dar from './dar'
 import desosar from './desosar'
-// import errar from './errar'
-// import estar from './estar'
+import errar from './errar'
+import estar from './estar'
 
 import cazar from './cazar'
 import llegar from './llegar'
@@ -126,7 +126,7 @@ export default {
     andar,
     dar,
     desosar,
-    // errar,
-    // estar
+    errar,
+    estar
   ]
 }
