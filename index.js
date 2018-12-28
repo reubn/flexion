@@ -14,7 +14,7 @@ process.stdin.on('readable', () => {
     const result = conjugate(trimmed)
     const end = process.hrtime(start)
 
-    console.log(util.inspect(JSON.parse(JSON.stringify(result)), {
+    console.log(util.inspect(JSON.parse(JSON.stringify(result, (key, value) => typeof value === 'function' ? 'function' : value), (key, value) => value === 'function' ? ()=>0 : value), {
       depth: Infinity,
       compact: false,
       colors: true
