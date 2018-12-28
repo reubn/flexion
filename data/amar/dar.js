@@ -5,33 +5,33 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return 'doy'},
+          first(verb){ return 'doy'},
         },
         plural: {
-          second(){ return 'dais'},
+          second(verb){ return 'dais'},
         }
       },
       preterite: {
         singular: {
-          first(){ return 'di'},
-          second(){ return 'diste'},
-          third(){ return 'dio'}
+          first(verb){ return 'di'},
+          second(verb){ return 'diste'},
+          third(verb){ return 'dio'}
         },
         plural: {
-          first(){ return 'dimos'},
-          second(){ return 'disteis'},
-          third(){ return 'dieron'}
+          first(verb){ return 'dimos'},
+          second(verb){ return 'disteis'},
+          third(verb){ return 'dieron'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return 'dé'},
-          third(){ return 'dé'},
+          first(verb){ return 'dé'},
+          third(verb){ return 'dé'},
         },
         plural: {
-          second(){ return 'deis'},
+          second(verb){ return 'deis'},
         }
       }
     }

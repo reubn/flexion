@@ -5,21 +5,21 @@ export default {
     indicative: {
       preterite: {
         singular: {
-          first(){ return this.inflections.root.slice(0, -1) + 'cé'}
+          first(verb){ return verb.inflections.root().slice(0, -1) + 'cé'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ce'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ces'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ce'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ces'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'cemos'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'céis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'cen'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'cemos'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'céis'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'cen'}
         }
       }
     }

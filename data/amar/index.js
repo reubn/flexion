@@ -28,80 +28,80 @@ export default {
   verb: 'amar',
   test: i => i.endsWith('ar'),
   inflections: {
-    participle() {return this.inflections.root + 'ado'},
-    gerund() {return this.inflections.root + 'ando'},
+    participle(verb) {return verb.inflections.root() + 'ado'},
+    gerund(verb) {return verb.inflections.root() + 'ando'},
     indicative: {
       present: {
         singular: {
-          second(){ return this.inflections.root + 'as'},
-          third(){ return this.inflections.root + 'a'}
+          second(verb){ return verb.inflections.root() + 'as'},
+          third(verb){ return verb.inflections.root() + 'a'}
         },
         plural: {
-          first(){ return this.inflections.root + 'amos'},
-          second(){ return this.inflections.root + 'áis'},
-          third(){ return this.inflections.root + 'an'}
+          first(verb){ return verb.inflections.root() + 'amos'},
+          second(verb){ return verb.inflections.root() + 'áis'},
+          third(verb){ return verb.inflections.root() + 'an'}
         }
       },
       imperfect: {
         singular: {
-          first(){ return this.inflections.root + 'aba'},
-          second(){ return this.inflections.root + 'abas'},
-          third(){ return this.inflections.root + 'aba'}
+          first(verb){ return verb.inflections.root() + 'aba'},
+          second(verb){ return verb.inflections.root() + 'abas'},
+          third(verb){ return verb.inflections.root() + 'aba'}
         },
         plural: {
-          first(){ return this.inflections.root + 'ábamos'},
-          second(){ return this.inflections.root + 'abais'},
-          third(){ return this.inflections.root + 'aban'}
+          first(verb){ return verb.inflections.root() + 'ábamos'},
+          second(verb){ return verb.inflections.root() + 'abais'},
+          third(verb){ return verb.inflections.root() + 'aban'}
         }
       },
       preterite: {
         singular: {
-          first(){ return this.inflections.root + 'é'},
-          second(){ return this.inflections.root + 'aste'},
-          third(){ return this.inflections.root + 'ó'}
+          first(verb){ return verb.inflections.root() + 'é'},
+          second(verb){ return verb.inflections.root() + 'aste'},
+          third(verb){ return verb.inflections.root() + 'ó'}
         },
         plural: {
-          first(){ return this.inflections.root + 'amos'},
-          second(){ return this.inflections.root + 'asteis'},
-          third(){ return this.inflections.root + 'aron'}
+          first(verb){ return verb.inflections.root() + 'amos'},
+          second(verb){ return verb.inflections.root() + 'asteis'},
+          third(verb){ return verb.inflections.root() + 'aron'}
         }
       },
       conditional: {
         singular: {
-          first(){ return this.infinitive + 'ía'},
-          second(){ return this.infinitive + 'ías'},
-          third(){ return this.infinitive + 'ía'}
+          first(verb){ return verb.infinitive + 'ía'},
+          second(verb){ return verb.infinitive + 'ías'},
+          third(verb){ return verb.infinitive + 'ía'}
         },
         plural: {
-          first(){ return this.infinitive + 'íamos'},
-          second(){ return this.infinitive + 'íais'},
-          third(){ return this.infinitive + 'ían'}
+          first(verb){ return verb.infinitive + 'íamos'},
+          second(verb){ return verb.infinitive + 'íais'},
+          third(verb){ return verb.infinitive + 'ían'}
         }
       },
       future: {
         singular: {
-          first(){ return this.infinitive + 'é'},
-          second(){ return this.infinitive + 'ás'},
-          third(){ return this.infinitive + 'á'}
+          first(verb){ return verb.infinitive + 'é'},
+          second(verb){ return verb.infinitive + 'ás'},
+          third(verb){ return verb.infinitive + 'á'}
         },
         plural: {
-          first(){ return this.infinitive + 'emos'},
-          second(){ return this.infinitive + 'éis'},
-          third(){ return this.infinitive + 'án'}
+          first(verb){ return verb.infinitive + 'emos'},
+          second(verb){ return verb.infinitive + 'éis'},
+          third(verb){ return verb.infinitive + 'án'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'e'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'es'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'e'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'e'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'es'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'e'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'emos'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'éis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, this.inflections.indicative.present.singular.first.endsWith('oy') ? -2 : -1) + 'en'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'emos'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'éis'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, verb.inflections.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'en'}
         }
       }
     }

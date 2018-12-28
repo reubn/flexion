@@ -7,26 +7,26 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return [this.inflections.root + 'o', 'yerro']},
-          second(){ return [this.inflections.root + 'as', 'yerras']},
-          third(){ return [this.inflections.root + 'a', 'yerra']}
+          first(verb){ return [verb.inflections.root() + 'o', 'yerro']},
+          second(verb){ return [verb.inflections.root() + 'as', 'yerras']},
+          third(verb){ return [verb.inflections.root() + 'a', 'yerra']}
         },
         plural: {
-          third(){ return [this.inflections.root + 'an', 'yerran']}
+          third(verb){ return [verb.inflections.root() + 'an', 'yerran']}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return [this.inflections.root + 'e', 'yerre']},
-          second(){ return [this.inflections.root + 'es', 'yerres']},
-          third(){ return [this.inflections.root + 'e', 'yerre']}
+          first(verb){ return [verb.inflections.root() + 'e', 'yerre']},
+          second(verb){ return [verb.inflections.root() + 'es', 'yerres']},
+          third(verb){ return [verb.inflections.root() + 'e', 'yerre']}
         },
         plural: {
-          first(){ return this.inflections.root + 'emos'},
-          second(){ return this.inflections.root + 'éis'},
-          third(){ return [this.inflections.root + 'en', 'yerren']}
+          first(verb){ return verb.inflections.root() + 'emos'},
+          second(verb){ return verb.inflections.root() + 'éis'},
+          third(verb){ return [verb.inflections.root() + 'en', 'yerren']}
         }
       }
     }

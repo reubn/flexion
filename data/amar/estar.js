@@ -7,12 +7,12 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return this.inflections.root + 'oy'},
-          second(){ return this.inflections.root + 'ás'},
-          third(){ return this.inflections.root + 'á'},
+          first(verb){ return (console.log(verb.inflections.root), verb.inflections.root()) + 'oy'},
+          second(verb){ return verb.inflections.root() + 'ás'},
+          third(verb){ return verb.inflections.root() + 'á'},
         },
         plural: {
-          third(){ return this.inflections.root + 'án'},
+          third(verb){ return verb.inflections.root() + 'án'},
         }
       },
       preterite: pretéritoGraveMixin('estuv')
@@ -20,12 +20,12 @@ export default {
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.root + 'é'},
-          second(){ return this.inflections.root + 'és'},
-          third(){ return this.inflections.root + 'é'},
+          first(verb){ return verb.inflections.root() + 'é'},
+          second(verb){ return verb.inflections.root() + 'és'},
+          third(verb){ return verb.inflections.root() + 'é'},
         },
         plural: {
-          third(){ return this.inflections.root + 'én'},
+          third(verb){ return verb.inflections.root() + 'én'},
         }
       }
     }

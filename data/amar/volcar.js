@@ -7,31 +7,31 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return replaceLast(this.inflections.root, 'o', 'ue') + 'o'},
-          second(){ return replaceLast(this.inflections.root, 'o', 'ue') + 'as'},
-          third(){ return replaceLast(this.inflections.root, 'o', 'ue') + 'a'}
+          first(verb){ return replaceLast(verb.inflections.root(), 'o', 'ue') + 'o'},
+          second(verb){ return replaceLast(verb.inflections.root(), 'o', 'ue') + 'as'},
+          third(verb){ return replaceLast(verb.inflections.root(), 'o', 'ue') + 'a'}
         },
         plural: {
-          third(){ return replaceLast(this.inflections.root, 'o', 'ue') + 'an'}
+          third(verb){ return replaceLast(verb.inflections.root(), 'o', 'ue') + 'an'}
         }
       },
       preterite: {
         singular: {
-          first(){ return this.inflections.root.slice(0, -1) + 'qué'}
+          first(verb){ return verb.inflections.root().slice(0, -1) + 'qué'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'que'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ques'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'que'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'que'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ques'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'que'}
         },
         plural: {
-          first(){ return this.inflections.root.slice(0, -1) + 'quemos'},
-          second(){ return this.inflections.root.slice(0, -1) + 'quéis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'quen'}
+          first(verb){ return verb.inflections.root().slice(0, -1) + 'quemos'},
+          second(verb){ return verb.inflections.root().slice(0, -1) + 'quéis'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'quen'}
         }
       }
     }

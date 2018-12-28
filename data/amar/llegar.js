@@ -5,21 +5,21 @@ export default {
     indicative: {
       preterite: {
         singular: {
-          first(){ return this.inflections.root + 'ué'}
+          first(verb){ return verb.inflections.root() + 'ué'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'ue'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'ues'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'ue'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ues'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'uemos'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'uéis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -1) + 'uen'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'uemos'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'uéis'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'uen'}
         }
       }
     }

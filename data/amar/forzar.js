@@ -7,31 +7,31 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return replaceLast(this.inflections.root, 'or', 'uer') + 'o'},
-          second(){ return replaceLast(this.inflections.root, 'or', 'uer') + 'as'},
-          third(){ return replaceLast(this.inflections.root, 'or', 'uer') + 'a'}
+          first(verb){ return replaceLast(verb.inflections.root(), 'or', 'uer') + 'o'},
+          second(verb){ return replaceLast(verb.inflections.root(), 'or', 'uer') + 'as'},
+          third(verb){ return replaceLast(verb.inflections.root(), 'or', 'uer') + 'a'}
         },
         plural: {
-          third(){ return replaceLast(this.inflections.root, 'or', 'uer') + 'an'}
+          third(verb){ return replaceLast(verb.inflections.root(), 'or', 'uer') + 'an'}
         }
       },
       preterite: {
         singular: {
-          first(){ return this.inflections.root.slice(0, -1) + 'cé'}
+          first(verb){ return verb.inflections.root().slice(0, -1) + 'cé'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ce'},
-          second(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ces'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'ce'}
+          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'},
+          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ces'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'}
         },
         plural: {
-          first(){ return this.inflections.root.slice(0, -1) + 'cemos'},
-          second(){ return this.inflections.root.slice(0, -1) + 'céis'},
-          third(){ return this.inflections.indicative.present.singular.first.slice(0, -2) + 'cen'}
+          first(verb){ return verb.inflections.root().slice(0, -1) + 'cemos'},
+          second(verb){ return verb.inflections.root().slice(0, -1) + 'céis'},
+          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -2) + 'cen'}
         }
       }
     }
