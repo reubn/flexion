@@ -11,8 +11,6 @@ export default (from, to) => function radicalChangePresentMixin(verb){
       third(){ return replaceLast(verb.root(), from, to) + endings.singular.third()}
     },
     plural: {
-      // first(){ return verb.root() + endings.plural.first()},
-      // second(){ return verb.root() + endings.plural.second()},
       third(){ return replaceLast(verb.root(), from, to) + endings.plural.third()}
     }
   }

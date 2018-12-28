@@ -1,5 +1,3 @@
-import replaceLast from '../../util/replaceLast'
-
 import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 
 export default {
@@ -8,26 +6,6 @@ export default {
   inflections: {
     indicative: {
       present: radicalChangePresentMixin('o', 'ue')
-    },
-    subjunctive: {
-      present: {
-        plural: {
-          first(){ return this.root() + 'emos'},
-          second(){ return this.root() + 'éis'}
-        }
-      }
     }
   }
 }
-
-
-// {
-//   singular: {
-//     first(){ return replaceLast(this.root(), 'o', 'ue') + 'o'},
-//     second(){ return replaceLast(this.root(), 'o', 'ue') + 'as'},
-//     third(){ return replaceLast(this.root(), 'o', 'ue') + 'a'}
-//   },
-//   plural: {
-//     third(){ return replaceLast(this.root(), 'o', 'ue') + 'an'}
-//   }
-// }

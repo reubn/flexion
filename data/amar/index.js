@@ -99,8 +99,22 @@ export default {
           third(){ return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'e'}
         },
         plural: {
-          first(){ return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'emos'},
-          second(){ return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'éis'},
+          first(){
+            const yo = this.indicative.present.singular.first()
+            const stem = yo.includes(this.root())
+            ? yo.slice(0, yo.endsWith('oy') ? -2 : -1)
+            : this.root()
+
+            return stem + 'emos'
+          },
+          second(){
+            const yo = this.indicative.present.singular.first()
+            const stem = yo.includes(this.root())
+            ? yo.slice(0, yo.endsWith('oy') ? -2 : -1)
+            : this.root()
+
+            return stem + 'éis'
+          },
           third(){ return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'en'}
         }
       }
