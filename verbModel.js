@@ -5,8 +5,14 @@ const convertToGetters = function (original, context, key, thisValue) {
     if (context.hasOwnProperty(key))
       if (Object.prototype.toString.call(context[key]) === '[object Object]')
         detached[key] = convertToGetters(detached[key] || {}, context[key], undefined, thisValue);
-      else
-        Object.defineProperty(detached, key, {get: context[key].bind(thisValue), enumerable: true})
+      else {
+        const isMixin = context[key].name && context[key].name.endsWith('Mixin')
+        const value = isMixin
+          ? () => convertToGetters({}, (context[key].call(thisValue)), undefined, thisValue)
+          : context[key].bind(thisValue)
+
+        Object.defineProperty(detached, key, {get: value, enumerable: true})
+      }
   return detached
 }
 
