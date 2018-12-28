@@ -7,31 +7,31 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(verb){ return replaceLast(verb.inflections.root(), 'e', 'ie') + 'o'},
-          second(verb){ return replaceLast(verb.inflections.root(), 'e', 'ie') + 'as'},
-          third(verb){ return replaceLast(verb.inflections.root(), 'e', 'ie') + 'a'}
+          first(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'o'},
+          second(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'as'},
+          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'a'}
         },
         plural: {
-          third(verb){ return replaceLast(verb.inflections.root(), 'e', 'ie') + 'an'}
+          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'an'}
         }
       },
       preterite: {
         singular: {
-          first(verb){ return verb.inflections.root() + 'ué'}
+          first(){ return this.inflections.root() + 'ué'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'},
-          second(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ues'},
-          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'}
+          first(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'},
+          second(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ues'},
+          third(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'}
         },
         plural: {
-          first(verb){ return verb.inflections.root() + 'uemos'},
-          second(verb){ return verb.inflections.root() + 'uéis'},
-          third(verb){ return verb.inflections.indicative.present.singular.first().slice(0, -1) + 'uen'}
+          first(){ return this.inflections.root() + 'uemos'},
+          second(){ return this.inflections.root() + 'uéis'},
+          third(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'uen'}
         }
       }
     }
