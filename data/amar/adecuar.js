@@ -2,7 +2,7 @@ import replaceLast from '../../util/replaceLast'
 
 export default {
   verb: 'adecuar',
-  test: i => ['adecuar', 'apropincuarse', 'colicuar', 'evacuar', 'licuar', 'promiscuar'].includes(i),
+  test: i => ['adecuar', 'apropincuar', 'colicuar', 'evacuar', 'licuar', 'promiscuar'].includes(i),
   inflections: {
     indicative: {
       present: {
