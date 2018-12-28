@@ -12,8 +12,8 @@ export default {
     subjunctive: {
       present: {
         plural: {
-          first(){ return this.inflections.root() + 'emos'},
-          second(){ return this.inflections.root() + 'éis'}
+          first(){ return this.root() + 'emos'},
+          second(){ return this.root() + 'éis'}
         }
       }
     }
@@ -23,11 +23,11 @@ export default {
 
 // {
 //   singular: {
-//     first(){ return replaceLast(this.inflections.root(), 'o', 'ue') + 'o'},
-//     second(){ return replaceLast(this.inflections.root(), 'o', 'ue') + 'as'},
-//     third(){ return replaceLast(this.inflections.root(), 'o', 'ue') + 'a'}
+//     first(){ return replaceLast(this.root(), 'o', 'ue') + 'o'},
+//     second(){ return replaceLast(this.root(), 'o', 'ue') + 'as'},
+//     third(){ return replaceLast(this.root(), 'o', 'ue') + 'a'}
 //   },
 //   plural: {
-//     third(){ return replaceLast(this.inflections.root(), 'o', 'ue') + 'an'}
+//     third(){ return replaceLast(this.root(), 'o', 'ue') + 'an'}
 //   }
 // }

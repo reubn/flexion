@@ -7,31 +7,31 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'o'},
-          second(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'as'},
-          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'a'}
+          first(){ return replaceLast(this.root(), 'e', 'ie') + 'o'},
+          second(){ return replaceLast(this.root(), 'e', 'ie') + 'as'},
+          third(){ return replaceLast(this.root(), 'e', 'ie') + 'a'}
         },
         plural: {
-          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'an'}
+          third(){ return replaceLast(this.root(), 'e', 'ie') + 'an'}
         }
       },
       preterite: {
         singular: {
-          first(){ return this.inflections.root() + 'ué'}
+          first(){ return this.root() + 'ué'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'},
-          second(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ues'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'ue'}
+          first(){ return this.indicative.present.singular.first().slice(0, -1) + 'ue'},
+          second(){ return this.indicative.present.singular.first().slice(0, -1) + 'ues'},
+          third(){ return this.indicative.present.singular.first().slice(0, -1) + 'ue'}
         },
         plural: {
-          first(){ return this.inflections.root() + 'uemos'},
-          second(){ return this.inflections.root() + 'uéis'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -1) + 'uen'}
+          first(){ return this.root() + 'uemos'},
+          second(){ return this.root() + 'uéis'},
+          third(){ return this.indicative.present.singular.first().slice(0, -1) + 'uen'}
         }
       }
     }

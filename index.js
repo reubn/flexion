@@ -20,7 +20,7 @@ process.stdin.on('readable', () => {
       colors: true
     }))
     console.log(end[0], 's', end[1] / 10**6, 'ms')
-    console.log(result.inflections.indicative.present.singular.first())
+    console.log(result.conjugation.indicative.present.singular.first())
   }
 });
 

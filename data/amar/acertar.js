@@ -7,20 +7,20 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'o'},
-          second(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'as'},
-          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'a'}
+          first(){ return replaceLast(this.root(), 'e', 'ie') + 'o'},
+          second(){ return replaceLast(this.root(), 'e', 'ie') + 'as'},
+          third(){ return replaceLast(this.root(), 'e', 'ie') + 'a'}
         },
         plural: {
-          third(){ return replaceLast(this.inflections.root(), 'e', 'ie') + 'an'}
+          third(){ return replaceLast(this.root(), 'e', 'ie') + 'an'}
         }
       }
     },
     subjunctive: {
       present: {
         plural: {
-          first(){ return this.inflections.root() + 'emos'},
-          second(){ return this.inflections.root() + 'éis'}
+          first(){ return this.root() + 'emos'},
+          second(){ return this.root() + 'éis'}
         }
       }
     }

@@ -7,31 +7,31 @@ export default {
     indicative: {
       present: {
         singular: {
-          first(){ return replaceLast(this.inflections.root(), 'iz', 'íz') + 'o'},
-          second(){ return replaceLast(this.inflections.root(), 'iz', 'íz') + 'as'},
-          third(){ return replaceLast(this.inflections.root(), 'iz', 'íz') + 'a'}
+          first(){ return replaceLast(this.root(), 'iz', 'íz') + 'o'},
+          second(){ return replaceLast(this.root(), 'iz', 'íz') + 'as'},
+          third(){ return replaceLast(this.root(), 'iz', 'íz') + 'a'}
         },
         plural: {
-          third(){ return replaceLast(this.inflections.root(), 'iz', 'íz') + 'an'}
+          third(){ return replaceLast(this.root(), 'iz', 'íz') + 'an'}
         }
       },
       preterite: {
         singular: {
-          first(){ return this.inflections.root().slice(0, -1) + 'cé'}
+          first(){ return this.root().slice(0, -1) + 'cé'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'},
-          second(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'ces'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'ce'}
+          first(){ return this.indicative.present.singular.first().slice(0, -2) + 'ce'},
+          second(){ return this.indicative.present.singular.first().slice(0, -2) + 'ces'},
+          third(){ return this.indicative.present.singular.first().slice(0, -2) + 'ce'}
         },
         plural: {
-          first(){ return this.inflections.root().slice(0, -1) + 'cemos'},
-          second(){ return this.inflections.root().slice(0, -1) + 'céis'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'cen'}
+          first(){ return this.root().slice(0, -1) + 'cemos'},
+          second(){ return this.root().slice(0, -1) + 'céis'},
+          third(){ return this.indicative.present.singular.first().slice(0, -2) + 'cen'}
         }
       }
     }

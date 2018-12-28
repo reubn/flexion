@@ -1,31 +1,35 @@
+import util from 'util'
+
 import data from './data'
-import verbModel from './verbModel'
 
-const extend = (original, context, key, thisValue) => {
- const detached = {...original}
-
- for (key in context)
-   if (context.hasOwnProperty(key))
-     if (Object.prototype.toString.call(context[key]) === '[object Object]')
-       detached[key] = extend(detached[key] || {}, context[key], undefined, thisValue)
-     else
-       // Object.defineProperty(detached, key, {get: context[key].bind(thisValue), enumerable: true})
-       detached[key] = context[key]
- return detached
+const extend = (into, from, thisValue=into) => {
+ for (const key in from)
+   if(Object.prototype.toString.call(from[key]) === '[object Object]') into[key] = extend(into[key] || {}, from[key], thisValue)
+   else if(typeof from[key] === 'function' && from[key].name.endsWith('Mixin')) into[key] = extend(into[key] || {}, from[key].call(thisValue, thisValue), thisValue)
+   else if(typeof from[key] === 'function') into[key] = from[key].bind(thisValue, thisValue)
+   else into[key] = from[key]
+ return into
 }
 
 export default infinitive => {
  let mostSpecificModel
 
- const processTree = (tree, parentInflections={}) => {
+ const protoInflections = {
+   infinitive,
+   root() {
+     return infinitive.slice(0, -2)
+   }
+ }
+
+ const processTree = (tree, parentInflections=protoInflections) => {
    if(Array.isArray(tree)) return tree.forEach(tree => processTree(tree, parentInflections))
    if(typeof tree === 'object' && (tree.verb || tree.subTree)){
      if(tree.test && !tree.test(infinitive)) return
 
      const extendedInflections = extend(parentInflections, tree.inflections)
      mostSpecificModel = {
-       verb: tree.verb,
-       inflections: extendedInflections
+       modelVerb: tree.verb,
+       conjugation: extendedInflections
      }
 
      processTree(tree.subTree, extendedInflections)
@@ -36,5 +40,5 @@ export default infinitive => {
 
  processTree(data)
 
- return verbModel(mostSpecificModel, infinitive)
+ return mostSpecificModel
 }

@@ -7,7 +7,7 @@ export default {
   test: i => i === 'andar' || i === 'desandar',
   inflections: {
     indicative: {
-      preterite: pretéritoGraveMixin(verb => replaceLast(verb.inflections.root.call(verb), 'and', 'anduv'))
+      preterite: pretéritoGraveMixin(verb => replaceLast(verb.root.call(verb), 'and', 'anduv'))
     }
   }
 }

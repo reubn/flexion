@@ -2,18 +2,18 @@ import conjugate from '../../conjugate'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function radicalChangePresentMixin(verb){
-  const {inflections: {indicative:{present: endings}}} = conjugate(this.infinitive.slice(-2))
+  const {conjugation: {indicative:{present: endings}}} = conjugate(this.infinitive.slice(-2))
 
   return {
     singular: {
-      first(){ return replaceLast(verb.inflections.root(), from, to) + endings.singular.first()},
-      second(){ return replaceLast(verb.inflections.root(), from, to) + endings.singular.second()},
-      third(){ return replaceLast(verb.inflections.root(), from, to) + endings.singular.third()}
+      first(){ return replaceLast(verb.root(), from, to) + endings.singular.first()},
+      second(){ return replaceLast(verb.root(), from, to) + endings.singular.second()},
+      third(){ return replaceLast(verb.root(), from, to) + endings.singular.third()}
     },
     plural: {
-      // first(){ return this.inflections.root() + endings.plural.first},
-      // second(){ return this.inflections.root() + endings.plural.second},
-      third(){ return replaceLast(verb.inflections.root(), from, to) + endings.plural.third()}
+      // first(){ return verb.root() + endings.plural.first()},
+      // second(){ return verb.root() + endings.plural.second()},
+      third(){ return replaceLast(verb.root(), from, to) + endings.plural.third()}
     }
   }
 

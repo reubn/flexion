@@ -5,21 +5,21 @@ export default {
     indicative: {
       preterite: {
         singular: {
-          first(){ return this.inflections.root().slice(0, -1) + 'qué'}
+          first(){ return this.root().slice(0, -1) + 'qué'}
         }
       }
     },
     subjunctive: {
       present: {
         singular: {
-          first(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'que'},
-          second(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'ques'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'que'}
+          first(){ return this.indicative.present.singular.first().slice(0, -2) + 'que'},
+          second(){ return this.indicative.present.singular.first().slice(0, -2) + 'ques'},
+          third(){ return this.indicative.present.singular.first().slice(0, -2) + 'que'}
         },
         plural: {
-          first(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'quemos'},
-          second(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'quéis'},
-          third(){ return this.inflections.indicative.present.singular.first().slice(0, -2) + 'quen'}
+          first(){ return this.indicative.present.singular.first().slice(0, -2) + 'quemos'},
+          second(){ return this.indicative.present.singular.first().slice(0, -2) + 'quéis'},
+          third(){ return this.indicative.present.singular.first().slice(0, -2) + 'quen'}
         }
       }
     }
