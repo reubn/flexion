@@ -2,12 +2,12 @@ import util from 'util'
 
 import conjugate from './conjugate'
 
-process.stdin.setEncoding('utf8');
+process.stdin.setEncoding('utf8')
 
 process.stdin.on('readable', () => {
   process.stdin.resume()
-  var chunk = process.stdin.read();
-  if (chunk !== null) {
+  var chunk = process.stdin.read()
+  if(chunk !== null){
     const trimmed = chunk.trim()
 
     const start = process.hrtime()
@@ -22,8 +22,8 @@ process.stdin.on('readable', () => {
     console.log(end[0], 's', end[1] / 10**6, 'ms')
     console.log(result.conjugation.indicative.present.singular.first())
   }
-});
+})
 
 process.stdin.on('end', () => {
-  process.stdout.write('end');
-});
+  process.stdout.write('end')
+})

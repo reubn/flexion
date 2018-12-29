@@ -6,12 +6,12 @@ export default (from, to) => function radicalChangePresentMixin(verb){
 
   return {
     singular: {
-      first(){ return replaceLast(verb.root(), from, to) + endings.singular.first()},
-      second(){ return replaceLast(verb.root(), from, to) + endings.singular.second()},
-      third(){ return replaceLast(verb.root(), from, to) + endings.singular.third()}
+      first(){return replaceLast(verb.root(), from, to) + endings.singular.first()},
+      second(){return replaceLast(verb.root(), from, to) + endings.singular.second()},
+      third(){return replaceLast(verb.root(), from, to) + endings.singular.third()}
     },
     plural: {
-      third(){ return replaceLast(verb.root(), from, to) + endings.plural.third()}
+      third(){return replaceLast(verb.root(), from, to) + endings.plural.third()}
     }
   }
 
