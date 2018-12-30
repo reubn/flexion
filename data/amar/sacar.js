@@ -1,3 +1,5 @@
+import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
+
 export default {
   verb: 'sacar',
   test: i => i.slice(-3, -2) === 'c',
@@ -10,18 +12,7 @@ export default {
       }
     },
     subjunctive: {
-      present: {
-        singular: {
-          first(){return this.indicative.present.singular.first().slice(0, -2) + 'que'},
-          second(){return this.indicative.present.singular.first().slice(0, -2) + 'ques'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'que'}
-        },
-        plural: {
-          first(){return this.indicative.present.singular.first().slice(0, -2) + 'quemos'},
-          second(){return this.indicative.present.singular.first().slice(0, -2) + 'quéis'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'quen'}
-        }
-      }
+      present: maintainSoundSubjunctiveMixin('c', 'qu', {pluralFirstAndSecondCarry: true})
     }
   }
 }

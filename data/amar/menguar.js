@@ -1,3 +1,5 @@
+import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
+
 export default {
   verb: 'menguar',
   test: i => ['menguar', 'achiguar', 'aguar', 'amortiguar', 'apaciguar', 'apaniaguar', 'apaniguar', 'atestiguar', 'averiguar', 'desaguar', 'deslenguar', 'fraguar', 'santiguar'].includes(i),
@@ -10,18 +12,7 @@ export default {
       }
     },
     subjunctive: {
-      present: {
-        singular: {
-          first(){return this.indicative.present.singular.first().slice(0, -2) + 'üe'},
-          second(){return this.indicative.present.singular.first().slice(0, -2) + 'ües'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'üe'}
-        },
-        plural: {
-          first(){return this.indicative.present.singular.first().slice(0, -2) + 'üemos'},
-          second(){return this.indicative.present.singular.first().slice(0, -2) + 'üéis'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'üen'}
-        }
-      }
+      present: maintainSoundSubjunctiveMixin('u', 'ü')
     }
   }
 }

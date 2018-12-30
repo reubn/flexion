@@ -1,20 +1,12 @@
-import replaceLast from '../../util/replaceLast'
+import radicalChangePresentMixin from '../mixins/radicalChangePresent'
+import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
 
 export default {
   verb: 'avergonzar',
   test: i => i === 'avergonzar',
   inflections: {
     indicative: {
-      present: {
-        singular: {
-          first(){return replaceLast(this.root(), 'go', 'güe') + 'o'},
-          second(){return replaceLast(this.root(), 'go', 'güe') + 'as'},
-          third(){return replaceLast(this.root(), 'go', 'güe') + 'a'}
-        },
-        plural: {
-          third(){return replaceLast(this.root(), 'go', 'güe') + 'an'}
-        }
-      },
+      present: radicalChangePresentMixin('o', 'üe'),
       preterite: {
         singular: {
           first(){return this.root().slice(0, -1) + 'cé'}
@@ -22,18 +14,7 @@ export default {
       }
     },
     subjunctive: {
-      present: {
-        singular: {
-          first(){return this.indicative.present.singular.first().slice(0, -2) + 'ce'},
-          second(){return this.indicative.present.singular.first().slice(0, -2) + 'ces'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'ce'}
-        },
-        plural: {
-          first(){return this.root().slice(0, -1) + 'cemos'},
-          second(){return this.root().slice(0, -1) + 'céis'},
-          third(){return this.indicative.present.singular.first().slice(0, -2) + 'cen'}
-        }
-      }
+      present: maintainSoundSubjunctiveMixin('z', 'c')
     }
   }
 }
