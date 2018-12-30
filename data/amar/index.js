@@ -94,13 +94,22 @@ export default {
     subjunctive: {
       present: {
         singular: {
-          first(){return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'e'},
-          second(){return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'es'},
-          third(){return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'e'}
+          first(){
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
+            return yo.slice(0, yo.endsWith('oy') ? -2 : -1) + 'e'
+          },
+          second(){
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
+            return yo.slice(0, yo.endsWith('oy') ? -2 : -1) + 'es'
+          },
+          third(){
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
+            return yo.slice(0, yo.endsWith('oy') ? -2 : -1) + 'e'
+          }
         },
         plural: {
           first(){
-            const yo = this.indicative.present.singular.first()
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
             const stem = yo.includes(this.root())
             ? yo.slice(0, yo.endsWith('oy') ? -2 : -1)
             : this.root()
@@ -108,14 +117,17 @@ export default {
             return stem + 'emos'
           },
           second(){
-            const yo = this.indicative.present.singular.first()
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
             const stem = yo.includes(this.root())
             ? yo.slice(0, yo.endsWith('oy') ? -2 : -1)
             : this.root()
 
             return stem + 'éis'
           },
-          third(){return this.indicative.present.singular.first().slice(0, this.indicative.present.singular.first().endsWith('oy') ? -2 : -1) + 'en'}
+          third(){
+            const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
+            return yo.slice(0, yo.endsWith('oy') ? -2 : -1) + 'en'
+          }
         }
       }
     }
