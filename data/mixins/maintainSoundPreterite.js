@@ -2,11 +2,11 @@ import conjugate from '../../conjugate'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function maintainSoundPreteriteAllMixin(verb){
-  const changedStem = replaceLast(verb.indicative.preterite.singular.first(), from, to)
+  const {conjugation: {indicative: {preterite: {singular: {first}}}}} = conjugate(this.infinitive.slice(-2))
 
   return {
     singular: {
-      first(){return changedStem}
+      first(){return replaceLast(verb.root(), from, to) + first()}
     }
   }
 }
