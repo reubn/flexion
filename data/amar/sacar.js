@@ -9,7 +9,7 @@ export default {
       preterite: maintainSoundPreteriteMixin('c', 'qu')
     },
     subjunctive: {
-      present: maintainSoundSubjunctiveMixin('c', 'qu', {pluralFirstAndSecondCarry: true})
+      present: maintainSoundSubjunctiveMixin('c', 'qu')
     }
   }
 }
