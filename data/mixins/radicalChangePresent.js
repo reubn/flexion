@@ -1,8 +1,7 @@
-import flexion from '../../'
+import {internalConjugate} from '../../'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function radicalChangePresentMixin(verb){
-  const {conjugation: {indicative: {present: endings}}} = flexion(verb.infinitive.slice(-2))
 
   return {
     singular: {
@@ -14,5 +13,6 @@ export default (from, to) => function radicalChangePresentMixin(verb){
       third(){return replaceLast(verb.root(), from, to) + endings.plural.third()}
     }
   }
+  const {conjugation: {indicative: {present: endings}}} = internalConjugate(verb.infinitive.slice(-2))
 
 }

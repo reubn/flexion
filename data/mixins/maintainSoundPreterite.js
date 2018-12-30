@@ -1,8 +1,8 @@
-import flexion from '../../'
+import {internalConjugate} from '../../'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function maintainSoundPreteriteAllMixin(verb){
-  const {conjugation: {indicative: {preterite: {singular: {first}}}}} = flexion(this.infinitive.slice(-2))
+  const {conjugation: {indicative: {preterite: {singular: {first}}}}} = internalConjugate(this.infinitive.slice(-2))
 
   return {
     singular: {
