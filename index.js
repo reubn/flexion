@@ -1,37 +1,11 @@
-import util from 'util'
+import processTree from './processTree'
 
-import {detailedDiff} from 'deep-object-diff'
+export default request => {
+  const trimmed = request.trim()
+  const infinitive = trimmed.endsWith('se') ? trimmed.slice(0, -2) : trimmed
+  if(!['ar', 'er', 'ir', 'ír'].includes(infinitive.slice(-2))) return null
 
-import conjugate from './conjugate'
-import wordRef from './wordRef'
+  const result = processTree(infinitive)
 
-process.stdin.setEncoding('utf8')
-
-process.stdin.on('readable', async () => {
-  process.stdin.resume()
-  var chunk = process.stdin.read()
-  if(chunk !== null){
-    const trimmed = chunk.trim()
-
-    const start = process.hrtime()
-    const result = conjugate(trimmed)
-    const end = process.hrtime(start)
-
-    const evaluated = JSON.parse(JSON.stringify(result, (key, value) => typeof value === 'function' ? value() : value), (key, value) => value === 'function' ? ()=>0 : value)
-    const refres = await wordRef(trimmed).catch(e => console.error(e))
-    const diff = detailedDiff(evaluated, refres)
-
-    console.log(util.inspect(evaluated, {
-      depth: Infinity,
-      compact: false,
-      colors: true
-    }))
-    console.log(end[0], 's', end[1] / 10**6, 'ms')
-    console.log(!Object.keys(diff.updated).length ? 'PASSED' : 'FAILED')
-
-  }
-})
-
-process.stdin.on('end', () => {
-  process.stdout.write('end')
-})
+  return JSON.parse(JSON.stringify(result, (key, value) => typeof value === 'function' ? value() : value))
+}

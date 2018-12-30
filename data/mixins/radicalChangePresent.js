@@ -1,8 +1,8 @@
-import conjugate from '../../conjugate'
+import flexion from '../../'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function radicalChangePresentMixin(verb){
-  const {conjugation: {indicative: {present: endings}}} = conjugate(verb.infinitive.slice(-2))
+  const {conjugation: {indicative: {present: endings}}} = flexion(verb.infinitive.slice(-2))
 
   return {
     singular: {
