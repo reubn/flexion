@@ -2,7 +2,7 @@ import conjugate from '../../conjugate'
 import replaceLast from '../../util/replaceLast'
 
 export default (from, to) => function radicalChangePresentMixin(){
-  const {conjugation: {indicative:{present: endings}}} = conjugate(this.infinitive.slice(-2))
+  const {conjugation: {indicative: {present: endings}}} = conjugate(this.infinitive.slice(-2))
 
   return {
     singular: {
