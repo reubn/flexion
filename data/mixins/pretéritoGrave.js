@@ -1,5 +1,5 @@
 export default stemOrFunc => function pretéritoGraveMixin(){
-  const stem = typeof stemOrFunc === 'function' ? stemOrFunc(this) : stemOrFunc
+  const stem = typeof stemOrFunc === 'function' ? stemOrFunc.call(this, this) : stemOrFunc
 
   return {
     singular: {
