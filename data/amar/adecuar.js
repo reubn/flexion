@@ -1,6 +1,6 @@
 import mergeAndOverlapIntoArrays from '../../util/mergeAndOverlapIntoArrays'
 
-import radicalChangePresentMixin from '../mixins/radicalChangePresent'
+import radicalChangeMixin from '../mixins/radicalChange'
 import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
 import passInMixin from '../mixins/passIn'
 
@@ -9,7 +9,7 @@ export default {
   test: i => ['adecuar', 'apropincuar', 'colicuar', 'evacuar', 'licuar', 'promiscuar'].includes(i),
   inflections: {
     indicative: {
-      present: passInMixin(verb => mergeAndOverlapIntoArrays(verb.indicative.present, radicalChangePresentMixin('u', 'ú').call(verb, verb)))
+      present: passInMixin(verb => mergeAndOverlapIntoArrays(verb.indicative.present, radicalChangeMixin('u', 'ú').call(verb, verb)))
     },
     subjunctive: {
       present: passInMixin(
