@@ -1,7 +1,7 @@
 import {internalConjugate} from '../../'
 import replaceLast from '../../util/replaceLast'
 
-export default (from, to, {pluralFirstAndSecondCarry=false, pluralFirstAndSecondSkip=false}={}) => function maintainSoundSubjunctiveAllMixin(){
+export default (from, to, {pluralFirstAndSecondCarry=false, pluralFirstAndSecondSkip=false}={}) => function maintainSoundSubjunctiveMixin(){
   const {conjugation: {subjunctive: {present: endings}}} = internalConjugate(this.infinitive.slice(-2))
 
   const yo = Array.isArray(this.indicative.present.singular.first) ? this.indicative.present.singular.first[0]() : this.indicative.present.singular.first()
