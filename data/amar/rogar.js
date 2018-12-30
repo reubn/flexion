@@ -1,5 +1,6 @@
 import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
+import maintainSoundPreteriteMixin from '../mixins/maintainSoundPreterite'
 
 export default {
   verb: 'rogar',
@@ -7,11 +8,7 @@ export default {
   inflections: {
     indicative: {
       present: radicalChangePresentMixin('o', 'ue'),
-      preterite: {
-        singular: {
-          first(){return this.root() + 'ué'}
-        }
-      }
+      preterite: maintainSoundPreteriteMixin('g', 'gu')
     },
     subjunctive: {
       present: maintainSoundSubjunctiveMixin('g', 'gu')

@@ -1,5 +1,6 @@
 import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
+import maintainSoundPreteriteMixin from '../mixins/maintainSoundPreterite'
 
 export default {
   verb: 'tropezar',
@@ -7,11 +8,7 @@ export default {
   inflections: {
     indicative: {
       present: radicalChangePresentMixin('e', 'ie'),
-      preterite: {
-        singular: {
-          first(){return this.root().slice(0, -1) + 'cé'}
-        }
-      }
+      preterite: maintainSoundPreteriteMixin('z', 'c')
     },
     subjunctive: {
       present: maintainSoundSubjunctiveMixin('z', 'c')
