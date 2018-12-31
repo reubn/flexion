@@ -16,9 +16,7 @@ process.stdin.on('readable', async () => {
   process.stdin.resume()
   const input = process.stdin.read()
   if(input !== null){
-    const start = process.hrtime()
     const result = flexion(input)
-    const end = process.hrtime(start)
 
     const wordRefResult = await wordRef(input).catch(e => console.error(e))
     const diff = detailedDiff(result, wordRefResult)
@@ -26,7 +24,7 @@ process.stdin.on('readable', async () => {
     const test = !Object.keys(diff.updated).length
 
     fancyLog(result)
-    console.log(end[0], 's', end[1] / 10**6, 'ms')
+
     if(!test) fancyLog(diff)
     console.log(test ? 'PASSED' : 'FAILED')
 
