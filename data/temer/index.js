@@ -1,43 +1,49 @@
-// import yacer from './yacer'
-// import ver from './ver'
-// import valer from './valer'
-// import tener from './tener'
-// import ser from './ser'
-// import saber from './saber'
-// import roer from './roer'
-// import retener from './retener'
-// import reponer from './reponer'
-// import rehacer from './rehacer'
-// import raer from './raer'
-// import querer from './querer'
-// import prever from './prever'
-// import poner from './poner'
-// import poder from './poder'
-// import placer from './placer'
-// import hacer from './hacer'
-// import haber from './haber'
-// import caer from './caer'
-// import caber from './caber'
-
-// import traer from './traer'
-// import soler from './soler'
-// import escocer from './escocer'
-
-// import oler from './oler'
-// import mover from './mover'
-// import entender from './entender'
-// import tañer from './tañer'
-// import mecer from './mecer'
-// import leer from './leer'
-import coger from './coger'
 import agradecer from './agradecer'
+import coger from './coger'
+import leer from './leer'
+import mecer from './mecer'
+import tañer from './tañer'
+import entender from './entender'
+import mover from './mover'
+import oler from './oler'
+
+// import escocer from './escocer'
+// import soler from './soler'
+// import traer from './traer'
+
+// import caber from './caber'
+// import caer from './caer'
+// import haber from './haber'
+// import hacer from './hacer'
+// import placer from './placer'
+// import poder from './poder'
+// import poner from './poner'
+// import prever from './prever'
+// import querer from './querer'
+// import raer from './raer'
+// import rehacer from './rehacer'
+// import reponer from './reponer'
+// import retener from './retener'
+// import roer from './roer'
+// import saber from './saber'
+// import ser from './ser'
+// import tener from './tener'
+// import valer from './valer'
+// import ver from './ver'
+// import yacer from './yacer'
 
 export default {
   verb: 'temer',
   test: i => i.endsWith('er'),
   inflections: {
-    participle(){return this.root() + 'ido'},
-    gerund(){return this.root() + 'iendo'},
+    participle(){
+      const root = this.root()
+      return root + (['a', 'e', 'i', 'o', 'u'].includes(root.slice(-1)) ? 'ído' : 'ido')
+    },
+    gerund(){
+      const root = this.root()
+      return root + (['a', 'e', 'i', 'o', 'u'].includes(root.slice(-1)) ? 'yendo' : 'iendo')
+    },
     indicative: {
       present: {
         singular: {
@@ -66,12 +72,18 @@ export default {
         singular: {
           first(){return this.root() + 'í'},
           second(){return this.root() + 'iste'},
-          third(){return this.root() + 'ió'}
+          third(){
+            const root = this.root()
+            return root + (['ñ', 'j'].includes(root.slice(-1)) ? 'ó' : 'ió')
+          }
         },
         plural: {
           first(){return this.root() + 'imos'},
           second(){return this.root() + 'isteis'},
-          third(){return this.root() + 'ieron'}
+          third(){
+            const root = this.root()
+            return root + (['ñ', 'j'].includes(root.slice(-1)) ? 'eron' : 'ieron')
+          }
         }
       }
     },
@@ -117,38 +129,38 @@ export default {
     }
   },
   subTree: [
-    // yacer,
-    // ver,
-    // valer,
-    // tener,
-    // ser,
-    // saber,
-    // roer,
-    // retener,
-    // reponer,
-    // rehacer,
-    // raer,
-    // querer,
-    // prever,
-    // poner,
-    // poder,
-    // placer,
-    // hacer,
-    // haber,
-    // caer,
-    // caber,
-    //
-    // traer,
-    // soler,
-    // escocer,
-    //
-    // oler,
-    // mover,
-    // entender,
-    // tañer,
-    // mecer,
-    // leer,
+    agradecer,
     coger,
-    agradecer
+    leer,
+    mecer,
+    tañer,
+    entender,
+    mover,
+    oler,
+
+    // escocer,
+    // soler,
+    // traer,
+
+    // caber,
+    // caer,
+    // haber,
+    // hacer,
+    // placer,
+    // poder,
+    // poner,
+    // prever,
+    // querer,
+    // raer,
+    // rehacer,
+    // reponer,
+    // retener,
+    // roer,
+    // saber,
+    // ser,
+    // tener,
+    // valer,
+    // ver,
+    // yacer
   ]
 }
