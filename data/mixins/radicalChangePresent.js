@@ -2,12 +2,16 @@ import radicalChangeMixin from './radicalChange'
 
 export default (from, to, options) => radicalChangeMixin({
   mask: {
-    plural: {
+    singular: {
       first: true,
-      second: true
+      second: true,
+      third: true
+    },
+    plural: {
+      third: true
     }
   },
-  endingsPath: ['conjugation', 'subjunctive', 'present'],
+  endingsPath: ['conjugation', 'indicative', 'present'],
   from,
   to,
   ...options
