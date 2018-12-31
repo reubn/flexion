@@ -1,11 +1,11 @@
-import radicalChangeMixin from '../mixins/radicalChange'
+import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 
 export default {
   verb: 'degollar',
   test: i => i === 'degollar' || i === 'regoldar',
   inflections: {
     indicative: {
-      present: radicalChangeMixin('o', 'üe')
+      present: radicalChangePresentMixin('o', 'üe')
     }
   }
 }

@@ -1,4 +1,4 @@
-import radicalChangeMixin from '../mixins/radicalChange'
+import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 import maintainSoundSubjunctiveMixin from '../mixins/maintainSoundSubjunctive'
 import maintainSoundPreteriteMixin from '../mixins/maintainSoundPreterite'
 
@@ -8,7 +8,7 @@ export default {
   test: i => ['enraizar', 'arcaizar', 'corporeizar', 'europeizar', 'hebraizar', 'judaizar'].includes(i),
   inflections: {
     indicative: {
-      present: radicalChangeMixin('iz', 'íz'),
+      present: radicalChangePresentMixin('iz', 'íz'),
       preterite: maintainSoundPreteriteMixin('z', 'c')
     },
     subjunctive: {

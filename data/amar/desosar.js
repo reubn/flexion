@@ -1,4 +1,4 @@
-import radicalChangeMixin from '../mixins/radicalChange'
+import radicalChangePresentMixin from '../mixins/radicalChangePresent'
 
 
 export default {
@@ -6,7 +6,7 @@ export default {
   test: i => i === 'desosar',
   inflections: {
     indicative: {
-      present: radicalChangeMixin('o', 'hue')
+      present: radicalChangePresentMixin('o', 'hue')
     }
   }
 }
