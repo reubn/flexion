@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer'
 
 const normaliseElement = element => {
-  const array = element.textContent.replace(' o ', ', ').split(', ').map(a => a.trim())
+  const array = element.textContent.replace('impersonal: ', '').replace(' u ', ', ').replace(' o ', ', ').split(', ').map(a => a.trim())
   return array.length === 1 ? array[0] : array
 }
 
