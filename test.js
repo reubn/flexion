@@ -15,19 +15,20 @@ process.stdin.setEncoding('utf8')
 process.stdin.on('readable', async () => {
   process.stdin.resume()
   const input = process.stdin.read()
+  const [query, dontRunTest] = input.split(' ')
   if(input !== null){
-    const result = flexion(input)
-
-    const wordRefResult = await wordRef(input).catch(e => console.error(e))
-    const diff = detailedDiff(result, wordRefResult)
-
-    const test = !Object.keys(diff.updated).length
-
+    const result = flexion(query)
     fancyLog(result)
 
-    if(!test) fancyLog(diff)
-    console.log(test ? 'PASSED' : 'FAILED')
+    if(!dontRunTest){
+      const wordRefResult = await wordRef(query).catch(e => console.error(e))
+      const diff = detailedDiff(result, wordRefResult)
 
+      const test = !Object.keys(diff.updated).length
+
+      if(!test) fancyLog(diff)
+      console.log(test ? 'PASSED' : 'FAILED')
+    }
   }
 })
 
