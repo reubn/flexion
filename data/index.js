@@ -44,26 +44,62 @@ export default {
     subjunctive: {
       imperfect: {
         singular: {
-          first(){return ['ra', 'se'].map(end => this.indicative.preterite.plural.third().slice(0, -3) + end)},
-          second(){return ['ras', 'ses'].map(end => this.indicative.preterite.plural.third().slice(0, -3) + end)},
-          third(){return ['ra', 'se'].map(end => this.indicative.preterite.plural.third().slice(0, -3) + end)}
+          first(){return ['ra', 'se'].map(end => {
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -3) + end
+          })},
+          second(){return ['ras', 'ses'].map(end => {
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -3) + end
+          })},
+          third(){return ['ra', 'se'].map(end => {
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -3) + end
+          })}
         },
         plural: {
-          first(){return ['ramos', 'semos'].map(end => this.indicative.preterite.plural.third().slice(0, -4) + accent(this.indicative.preterite.plural.third().slice(-4, -3)) + end)},
-          second(){return ['rais', 'seis'].map(end => this.indicative.preterite.plural.third().slice(0, -3) + end)},
-          third(){return ['ran', 'sen'].map(end => this.indicative.preterite.plural.third().slice(0, -3) + end)}
+          first(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return ['ramos', 'semos'].map(end => third.slice(0, -4) + accent(third.slice(-4, -3)) + end)
+          },
+          second(){return ['rais', 'seis'].map(end => {
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -3) + end
+          })},
+          third(){return ['ran', 'sen'].map(end => {
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -3) + end
+          })}
         }
       },
       future: {
         singular: {
-          first(){return this.indicative.preterite.plural.third().slice(0, -2) + 'e'},
-          second(){return this.indicative.preterite.plural.third().slice(0, -2) + 'es'},
-          third(){return this.indicative.preterite.plural.third().slice(0, -2) + 'e'}
+          first(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -2) + 'e'
+          },
+          second(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -2) + 'es'
+          },
+          third(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -2) + 'e'
+          }
         },
         plural: {
-          first(){return this.indicative.preterite.plural.third().slice(0, -4) + accent(this.indicative.preterite.plural.third().slice(-4, -3)) +  'remos'},
-          second(){return this.indicative.preterite.plural.third().slice(0, -2) + 'eis'},
-          third(){return this.indicative.preterite.plural.third().slice(0, -2) + 'en'}
+          first(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -4) + accent(third.slice(-4, -3)) + 'remos'
+          },
+          second(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -2) + 'eis'
+          },
+          third(){
+            const third = Array.isArray(this.indicative.preterite.plural.third) ? this.indicative.preterite.plural.third[0]() : this.indicative.preterite.plural.third()
+            return third.slice(0, -2) + 'en'
+          }
         }
       }
     }
