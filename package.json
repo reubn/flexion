@@ -1,7 +1,7 @@
 {
   "name": "flexion",
   "version": "1.0.0",
-  "description": "",
+  "description": "Spanish Verb Conjugator; Work in Progress",
   "main": "index.js",
   "keywords": [
     "spanish",
