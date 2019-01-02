@@ -7,6 +7,9 @@ import partir from './partir'
 export default {
   test: i => ['ar', 'er', 'ir', 'ír'].includes(i.slice(-2)),
   inflections: {
+    root(){
+      return this.infinitive.slice(0, -2)
+    },
     indicative: {
       present: {
         singular: {
