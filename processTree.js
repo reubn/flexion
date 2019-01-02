@@ -15,7 +15,7 @@ export default infinitive => {
 
   const processTree = (tree, parentInflections={infinitive}) => {
     if(Array.isArray(tree)) return tree.reduce((found, subTree) => found || processTree(subTree, parentInflections), false)
-    if(typeof tree === 'object' && (!tree.test && tree.test(infinitive))){
+    if(typeof tree === 'object' && tree.test && tree.test(infinitive)){
       const extendedInflections = extend(parentInflections, tree.inflections)
       mostSpecificModel = {
         modelVerb: tree.verb,
