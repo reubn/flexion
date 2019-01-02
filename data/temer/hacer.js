@@ -21,12 +21,12 @@ export default {
         }
       },
       preterite: mergeMixin(pretéritoGraveMixin(verb => replaceLast(verb.root(), 'hac', 'hic')), verb => {
-        const {singular: {third}} = pretéritoGraveMixin(verb => replaceLast(verb.root(), 'hac', 'hiz')).call(verb, verb)
+        const {singular: {first}} = verb.infinitive === 'rehacer' ? pretéritoGraveMixin(verb => replaceLast(verb.root(), 'hac', 'híc')).call(verb, verb) : {singular:{}}
+        const {singular: {third}} = pretéritoGraveMixin(verb => replaceLast(verb.root(), 'hac', verb.infinitive === 'rehacer' ? 'híz' : 'hiz')).call(verb, verb)
         return {
           singular: {
-            third(){
-              return third()
-            }
+            first,
+            third
           }
         }
     }),
