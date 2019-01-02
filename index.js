@@ -4,7 +4,7 @@ const flexion = (internal, request) => {
   const trimmed = request.trim()
   const infinitive = trimmed.endsWith('se') ? trimmed.slice(0, -2) : trimmed
 
-  const result = processTree(infinitive, !internal)
+  const result = processTree(infinitive)
 
   if(!result) return null
   return internal ? result : JSON.parse(JSON.stringify(result, (key, value) => typeof value === 'function' ? value() : value))
