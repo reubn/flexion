@@ -5,6 +5,7 @@ import temer from './temer'
 import partir from './partir'
 
 export default {
+  test: i => ['ar', 'er', 'ir', 'ír'].includes(i.slice(-2)),
   inflections: {
     indicative: {
       present: {
